@@ -1,5 +1,4 @@
 import os
-import csv
 from shutil import copyfile, rmtree
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -42,9 +41,16 @@ combined_csv = pd.concat([pd.read_csv(f, sep=';') for f in csv_filenames ])
 combined_csv.to_csv(new_vid_lisa_dir+"/annotations.csv", index=False, encoding='utf-8-sig')
 
 fig, ax = plt.subplots()
-vid_hist = combined_csv['Annotation tag'].hist(ax=ax)
-fig.savefig('vid_annotation.png')
+vid_df = combined_csv['Annotation tag']
+vid_hist = vid_df.hist(ax=ax)
+ax.tick_params(labelrotation=90)
+fig.savefig(new_lisa_dir+'/vid_annotation.png')
 
+vid_list = vid_df.to_list()
+f = open(new_lisa_dir+'/vid_labels.txt', 'a') 
+for l in list(set(vid_list)) :
+    f.write(l+'\t'+str(vid_list.count(l))+'\n')
+f.close()
 
 # aiua
 aiua_dirs = list(filter(lambda x : "aiua" in x and not "." in x, os.listdir(lisa_dir)))
@@ -65,5 +71,27 @@ combined_csv = pd.concat([pd.read_csv(f, sep=';') for f in csv_filenames ])
 combined_csv.to_csv(new_aiua_lisa_dir+"/annotations.csv", index=False, encoding='utf-8-sig')
 
 fig, ax = plt.subplots()
-aiua_hist = combined_csv['Annotation tag'].hist(ax=ax)
-fig.savefig('aiua_annotation.png')
+aiua_df = combined_csv['Annotation tag']
+aiua_hist = aiua_df.hist(ax=ax)
+ax.tick_params(labelrotation=90)
+fig.savefig(new_lisa_dir+'/aiua_annotation.png')
+
+aiua_list = aiua_df.to_list()
+f = open(new_lisa_dir+'/aiua_labels.txt', 'a') 
+for l in list(set(aiua_list)) :
+    f.write(l+'\t'+str(aiua_list.count(l))+'\n')
+f.close()
+
+###
+
+fig, ax = plt.subplots()
+total_df = aiua_df.append(vid_df)
+total_hist = total_df.hist(ax=ax)
+ax.tick_params(labelrotation=90)
+fig.savefig(new_lisa_dir+'/total_annotation.png')
+
+total_list = total_df.to_list()
+f = open(new_lisa_dir+'/labels.txt', 'a') 
+for l in list(set(total_list)) :
+    f.write(l+'\t'+str(total_list.count(l))+'\n')
+f.close()

@@ -1,0 +1,9 @@
+venv/*
+google/*
+mapilary/*
+organized_lisa_dataset/*
+organized_mapilary_dataset/*
+LISA_Data/*
+OIDv4_ToolKit/*
+*.zip
+*.crdownload

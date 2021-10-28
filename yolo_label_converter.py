@@ -8,13 +8,11 @@ from functools import *
 
 destination_dataset_dir_name = 'yolo_data'
 
-yolo_labels = ['speed_limit','stop']
-mapilary_labels_list = [[
-    'regulatory--maximum-speed-limit-40--g3','regulatory--maximum-speed-limit-50--g1'
-],[
-    'regulatory--stop--g1','regulatory--stop--g10','regulatory--stop-signals--g1'
-]]
-lisa_labels_list = [['rampSpeedAdvisory50','speedLimit15','speedLimit35'],['stop']]
+with open('label_setting.json') as f:
+    data = json.load(f)
+yolo_labels =  list(data.keys())
+mapilary_labels_list = list(map(lambda x : data[x]["mapilary_labels_list"], yolo_labels))
+lisa_labels_list = list(map(lambda x : data[x]["lisa_labels_list"], yolo_labels))
 
 def load_lisa(dataset='total') :
     dfs = []

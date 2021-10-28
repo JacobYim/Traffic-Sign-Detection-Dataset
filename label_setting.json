@@ -8,5 +8,232 @@
             "regulatory--stop--g1","regulatory--stop--g10","regulatory--stop-signals--g1"
         ],
         "lisa_labels_list" : ["stop"]
+    },
+    "all_way":{
+        "mapilary_labels_list" : [],
+        "lisa_labels_list" : []
+    },
+    "bike_lane":{
+        "mapilary_labels_list" : ["regulatory--bicycles-only--g2","regulatory--bicycles-only--g3"],
+        "lisa_labels_list" : []
+    },
+    "pedestrians":{
+        "mapilary_labels_list" : [
+            "information--pedestrians-crossing--g1",
+            "information--pedestrians-crossing--g2", 
+            "regulatory--pedestrians-only--g1", 
+            "regulatory--pedestrians-only--g2", 
+            "warning--pedestrians-crossing--g1",
+            "warning--pedestrians-crossing--g4",
+            "warning--pedestrians-crossing--g5",
+            "warning--pedestrians-crossing--g9",
+            "warning--pedestrians-crossing--g10",
+            "warning--pedestrians-crossing--g11", 
+            "warning--pedestrians-crossing--g12"
+        ],
+        "lisa_labels_list" : [
+            "pedestrianCrossing"
+        ]
+    },
+    "keep_rigjt_sign":{
+        "mapilary_labels_list" : [
+            "regulatory--keep-right--g1",
+            "regulatory--keep-right--g2",
+            "regulatory--keep-right--g4",
+            "regulatory--keep-right--g6",
+            "complementary--keep-right--g1"
+        ],
+        "lisa_labels_list" : [
+            "keepRight"
+        ]
+    },
+    "one_way_right":{
+        "mapilary_labels_list" : [
+            "complementary--go-right--g2",
+            "complementary--chevron-right--g4"
+        ],
+        "lisa_labels_list" : []
+    },
+    "roundabout_directional":{
+        "mapilary_labels_list" : [
+            "regulatory--roundabout--g1",
+            "regulatory--roundabout--g2",
+            "warning--roundabout--g1",
+            "warning--roundabout--g25"
+        ],
+        "lisa_labels_list" : [
+            "roundabout"
+        ]
+    },
+    "right_turn_or_straight_sign":{
+        "mapilary_labels_list" : [
+            "regulatory--go-straight-or-turn-right--g3",
+            "regulatory--go-straight-or-turn-right--g1"
+        ],
+        "lisa_labels_list" : [
+        ]
+    },
+    "stop_here_on_red_sign":{
+        "mapilary_labels_list" : [
+            "regulatory--stop-here-on-red-or-flashing-light--g1",
+            "regulatory--stop-here-on-red-or-flashing-light--g2"
+        ],
+        "lisa_labels_list" : [
+
+        ]
+    },
+    "no_left_turn_sign":{
+        "mapilary_labels_list" : [
+            "regulatory--no-left-turn--g1",
+            "regulatory--no-left-turn--g2",
+            "regulatory--no-left-turn--g3"
+        ],
+        "lisa_labels_list" : [
+            "noLeftTurn"
+        ]
+    },
+    "yeild_sign":{
+        "mapilary_labels_list" : [
+            "regulatory--yield--g1"
+        ],
+        "lisa_labels_list" : [
+            "yield"
+        ]
+    },
+    "left_turn_only_sign":{
+        "mapilary_labels_list" : [
+            "regulatory--one-way-left--g1",
+            "regulatory--one-way-left--g2",
+            "regulatory--one-way-left--g3"
+        ],
+        "lisa_labels_list" : [
+            "turnLeft"
+        ]
+    },
+    "do_not_enter_sign":{
+        "mapilary_labels_list" : [
+
+        ],
+        "lisa_labels_list" : [
+            "doNotEnter"
+        ]
+    },
+    "slow_sign":{
+        "mapilary_labels_list" : [
+        ],
+        "lisa_labels_list" : [
+            "slow"
+        ]
+    },
+    "right_turn_only_sign":{
+        "mapilary_labels_list" : [
+            "regulatory--one-way-right--g1",
+            "regulatory--one-way-right--g2",
+            "regulatory--one-way-right--g3"
+        ],
+        "lisa_labels_list" : [
+            "turnRight"
+        ]
+    },
+    "lane_closed_ahead":{
+        "mapilary_labels_list" : [ 
+            
+        ],
+        "lisa_labels_list" : []
+    },
+    "lane_ends_right_merge_left_sign":{
+        "mapilary_labels_list" : [
+            "warning--traffic-merges-left--g1",
+            "warning--traffic-merges-left--g2"
+        ],
+        "lisa_labels_list" : [
+            "thruMergeLeft",
+            "thruTrafficMergeLeft"
+        ]
+    },
+    "reverse_curve_right_sign":{
+        "mapilary_labels_list" : [
+            "warning--double-reverse-curve-right"
+        ],
+        "lisa_labels_list" : [
+            "curveRight"
+        ]
+    },
+    "divided_highway":{
+        "mapilary_labels_list" : [
+            "warning--divided-highway-ends--g1",
+            "warning--divided-highway-ends--g2"
+        ],
+        "lisa_labels_list" : [
+            
+        ]
+    },
+    "roundabout_circulation":{
+        "mapilary_labels_list" : [
+            "regulatory--roundabout--g1",
+            "regulatory--roundabout--g2",
+            "warning--roundabout--g1",
+            "warning--roundabout--g25"
+        ],
+        "lisa_labels_list" : [
+            "roundabout"
+        ]
+    },
+    "side_road":{
+        "mapilary_labels_list" : [
+            "warning--junction-with-a-side-road-perpendicular-right--g1",
+            "warning--junction-with-a-side-road-perpendicular-right--g3"
+
+        ],
+        "lisa_labels_list" : [
+
+        ]
+    },
+    "trucks_entering_highway":{
+        "mapilary_labels_list" : [
+
+        ],
+        "lisa_labels_list" : [
+
+        ]
+    },
+    "keep_right_sign_with_arrow":{
+        "mapilary_labels_list" : [
+            "regulatory--keep-right--g1",
+            "regulatory--keep-right--g4",
+            "regulatory--keep-right--g6",
+            "regulatory--keep-right--g2",
+            "complementary--keep-right--g1"
+        ],
+        "lisa_labels_list" : [
+            "keepRight"
+        ]
+    },
+    "no_u_turn_sign":{
+        "mapilary_labels_list" : [
+            "regulatory--no-u-turn--g1",
+            "regulatory--no-u-turn--g2",
+            "regulatory--no-u-turn--g3"
+        ],
+        "lisa_labels_list" : [
+            
+        ]
+    },
+    "new_traffic_pattern_ahead":{
+        "mapilary_labels_list" : [
+
+        ],
+        "lisa_labels_list" : [
+
+        ]
+    },
+    "reverse_curve":{
+        "mapilary_labels_list" : [
+            "warning--double-reverse-curve-right--g1"
+        ],
+        "lisa_labels_list" : [
+
+        ]
     }
+
 }

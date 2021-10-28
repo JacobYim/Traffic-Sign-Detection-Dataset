@@ -1,0 +1,12 @@
+{
+    "speed_limit" : {
+        "mapilary_labels_list" : ["regulatory--maximum-speed-limit-40--g3","regulatory--maximum-speed-limit-50--g1"],
+        "lisa_labels_list" : ["rampSpeedAdvisory50","speedLimit15","speedLimit35"]  
+    },
+    "stop" : {
+        "mapilary_labels_list" : [
+            "regulatory--stop--g1","regulatory--stop--g10","regulatory--stop-signals--g1"
+        ],
+        "lisa_labels_list" : ["stop"]
+    }
+}

@@ -101,4 +101,4 @@ def show(download_dir, index=0, file= None, window_name="aaaa", class_name=None)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 if __name__ == "__main__" :   
-    show(file='stop_1331867195.avi_image3', download_dir='yolo_label')
+    show(file='stop_1331867195.avi_image3', download_dir='yolo_data')

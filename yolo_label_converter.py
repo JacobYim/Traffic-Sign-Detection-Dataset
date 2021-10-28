@@ -6,7 +6,7 @@ import pandas as pd
 from PIL import Image
 from functools import *
 
-destination_dataset_dir_name = 'yolo_label'
+destination_dataset_dir_name = 'yolo_data'
 
 yolo_labels = ['speed_limit','stop']
 mapilary_labels_list = [[
@@ -64,7 +64,7 @@ def pick_lisa_data(lisa_dataframe, yolo_labels, lisa_labels_list) :
                     im1.save('./'+destination_dataset_dir_name+'/'+data[0].replace('.png','.jpg'))
                     # save annotation at destination directory
                     f = open('./'+destination_dataset_dir_name+'/'+'.'.join(data[0].split('.')[0:-1]+['txt']), "a")
-                    f.write( " ".join(map(lambda x : str(x), [yolo_label]+data[2:6])))
+                    f.write( " ".join(map(lambda x : str(x), [yolo_label]+data[2:6]))+"\n")
                     f.close()
                 except :
                     pass
@@ -82,28 +82,37 @@ def mapilary_to_yolo(mapilary_jsons, yolo_labels, mapilary_labels_list) :
                     if data_object['label'] in mapilary_labels :
                         # save annotation at destination directory
                         content_txt = " ".join([yolo_label, str(data_object['bbox']['xmin']), str(data_object['bbox']['ymin']), str(data_object['bbox']['xmax']), str(data_object['bbox']['ymax'])])
-                        f.write(content_txt)
+                        f.write(content_txt+'\n')
             f.close()
         except :
             pass
 
 def convert_coordinate() :
+    print('convert_coordinate start')
+    new_label_file_dir = "yolo_label"
+    if new_label_file_dir in os.listdir() :
+        shutil.rmtree(new_label_file_dir)
+    os.mkdir(new_label_file_dir)
+
     filelist = os.listdir(destination_dataset_dir_name)
     textfilelist = list(filter(lambda x : '.txt' in x, filelist))
     for textfile in textfilelist :
+        print('{} processing ...'.format(destination_dataset_dir_name+"/"+textfile))
         file = open(destination_dataset_dir_name+"/"+textfile,mode='r+')
         all_of_it = file.read()
         lines = all_of_it.split('\n')[:-1]  
         file.close()
         
+        print(lines)
+
         im = cv2.imread(destination_dataset_dir_name+'/'+textfile.split('.txt')[0]+'.jpg')
         h, w, c = im.shape
         # print(h, w, c)
 
-        new_file = open(destination_dataset_dir_name+"/new_"+textfile, "w+")
+        new_file = open(new_label_file_dir+"/"+textfile, "w+")
         for line in lines :
             # print(line)
-            content = line.split()
+            content = line.split(' ')
             # print(content)
             min_x = float(content[1]) 
             min_y = float(content[2])
@@ -113,7 +122,7 @@ def convert_coordinate() :
             content[2] = str(float(min_y/h))
             content[3] = str(float(max_x/w))
             content[4] = str(float(max_y/h))
-            # print(content)
+            print("print content : ", content)
             new_line = " ".join(content)+"\n"
             # print(new_line)
             new_file.write(new_line)
@@ -129,4 +138,4 @@ if __name__ == "__main__" :
     mapilary_jsons = load_mapilary(dataset='total')
     pick_lisa_data(lisa_dataframe, yolo_labels, lisa_labels_list)
     mapilary_to_yolo(mapilary_jsons, yolo_labels, mapilary_labels_list)
-    # convert_coordinate()
+    convert_coordinate()

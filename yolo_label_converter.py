@@ -5,7 +5,6 @@ import json
 import pandas as pd
 from PIL import Image
 from functools import *
-print(os.listdir())
 
 destination_dataset_dir_name = 'yolo_label'
 
@@ -99,13 +98,13 @@ def convert_coordinate() :
         
         im = cv2.imread(destination_dataset_dir_name+'/'+textfile.split('.txt')[0]+'.jpg')
         h, w, c = im.shape
-        print(h, w, c)
+        # print(h, w, c)
 
-        new_file = open(destination_dataset_dir_name+"/"+textfile, "w+")
+        new_file = open(destination_dataset_dir_name+"/new_"+textfile, "w+")
         for line in lines :
-            print(line)
+            # print(line)
             content = line.split()
-            print(content)
+            # print(content)
             min_x = float(content[1]) 
             min_y = float(content[2])
             max_x = float(content[3])
@@ -114,9 +113,9 @@ def convert_coordinate() :
             content[2] = str(float(min_y/h))
             content[3] = str(float(max_x/w))
             content[4] = str(float(max_y/h))
-            print(content)
+            # print(content)
             new_line = " ".join(content)+"\n"
-            print(new_line)
+            # print(new_line)
             new_file.write(new_line)
         new_file.close()
 
@@ -130,4 +129,4 @@ if __name__ == "__main__" :
     mapilary_jsons = load_mapilary(dataset='total')
     pick_lisa_data(lisa_dataframe, yolo_labels, lisa_labels_list)
     mapilary_to_yolo(mapilary_jsons, yolo_labels, mapilary_labels_list)
-    convert_coordinate()
+    # convert_coordinate()

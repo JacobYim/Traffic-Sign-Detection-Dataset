@@ -14,7 +14,8 @@ new_fully_img_mapilary_dir = new_fully_mapilary_dir+'/img'
 new_partially_img_mapilary_dir = new_partially_mapilary_dir+'/img'
 
 if not 'mapilary' in os.listdir() :
-    assert Exception
+	print("please make dirtory 'mapilary' (mkdir mapilary)")    
+	assert Exception
 if 'organized_mapilary_dataset' in os.listdir() :
     rmtree(new_mapilary_dir)
     print('OVERWRITTING to "organized_mapilary_dataset" directory. organized_mapilary_dataset is already exist.')

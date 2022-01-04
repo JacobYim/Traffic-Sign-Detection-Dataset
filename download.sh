@@ -19,5 +19,5 @@ mkdir mapillary_data
 virtualenv venv --py=python3
 source venv/bin/activate
 pip install -r requirements.txt
-python downloader/mapilary_downloader.py $ID $PW $NAME
+python downloader/mapilary_downloader.py
 deactivate
